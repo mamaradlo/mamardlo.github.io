@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-image: url("main.jpg"); 
+      background-repeat: no-repeat;
+      background-size: cover;
+      color: aliceblue;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 0;
+    }
+    p{
+      text-align:center;
+    }
+    .main{
+      margin-top: 40px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td {
+      padding: 10px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 5px;
+    }
+
+    select {
+      width: 100%;
+      padding: 5px;
+    }
+
+    small {
+      font-size: 80%;
+    }
+  </style>
+</head>
+<body>
+  <h2>User Registration</h2>
+  <p>Please complete the following form to register with our site:</p>
+  <form name="registrationForm" onsubmit="return validateForm()">
+      <table class="main">
+        <tr>
+          <td>User Name:</td>
+          <td><input type="text" name="txtUserName" /></td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td><input type="password" name="pwdPassword" /></td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <label><input type="radio" name="radSex" value="male" />Male</label>
+            <label><input type="radio" name="radSex" value="female" />Female</label>
+          </td>
+        </tr>
+        <tr>
+          <td>How did you hear about us?:</td>
+          <td>
+            <select name="selReferrer">
+              <option selected="selected" value="">Select answer</option>
+              <option value="website">Another website</option>
+              <option value="printAd">Magazine ad</option>
+              <option value="friend">From a friend</option>
+              <option value="other">Other</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Please select this box if you wish to be added to our mailing list</td>
+          <td>
+            <input type="checkbox" name="chkMailingList" />
+            <small>We will not pass on your details to any third party.</small>
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>    <input type="submit" value="Register now" /></td>
+        </tr>
+    </table>
+  </form>
+
+  <script>
+    function validateForm() {
+      var userName = document.forms["registrationForm"]["txtUserName"].value;
+      var password = document.forms["registrationForm"]["pwdPassword"].value;
+      var gender = document.forms["registrationForm"]["radSex"].value;
+      var referrer = document.forms["registrationForm"]["selReferrer"].value;
+
+      if (userName === "") {
+        alert("Please enter a user name.");
+        return false;
+      }
+
+      if (password === "") {
+        alert("Please enter a password.");
+        return false;
+      }
+
+      if (gender === "") {
+        alert("Please select a gender.");
+        return false;
+      }
+
+      if (referrer === "") {
+        alert("Please select how you heard about us.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+ 
+  
+</body>
+</html>
